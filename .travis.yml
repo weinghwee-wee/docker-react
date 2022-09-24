@@ -7,7 +7,7 @@ services:
 
 # series of step before deploy or running test
 before_install:
-  - docker build -t TESTIMAGE -f Dockerfile.dev .
+  - docker build -t testimage -f Dockerfile.dev .
 
 script:
-  - docker run -e CI=true TESTIMAGE npm run test
+  - docker run -e CI=true testimage npm run test
