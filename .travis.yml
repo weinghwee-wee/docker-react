@@ -1,0 +1,13 @@
+# give super user permission
+sudo: required
+language: generic
+
+services:
+  - docker
+
+# series of step before deploy or running test
+before_install:
+  - docker build -t TESTIMAGE -f Dockerfile.dev .
+
+script:
+  - docker run -e CI=true TESTIMAGE npm run test
